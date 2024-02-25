@@ -35,6 +35,7 @@ class CheckOutPage {
         ];
 
         cy.intercept('GET', '/static/version1616152004/frontend/Magento/luma/en_GB/Magento_Tax/template/checkout/shipping_method/price.html').as('loadShippingHtml');
+        //This huge timeout is due to this page sometimes takes a long time to load
         cy.wait('@loadShippingHtml', {timeout: 10000}).then((req) => {
             expect(req.response.statusCode).to.eq(200);
 
@@ -65,6 +66,7 @@ class CheckOutPage {
         ];
 
         cy.intercept('GET', '/static/version1616152004/frontend/Magento/luma/en_GB/Magento_Checkout/template/billing-address/actions.html').as('loadPricingHtml');
+        //This huge timeout is due to this page sometimes takes a long time to load
         cy.wait('@loadPricingHtml', {timeout: 10000}).then((req) => {
             expect(req.response.statusCode).to.eq(200);
             
@@ -77,6 +79,7 @@ class CheckOutPage {
 
     assertPurchase() {
         cy.intercept('GET', '/static/version1616152004/frontend/Magento/luma/en_GB/Magento_Ui/templates/collection.html').as('loadPurchaseHtml');
+        //This huge timeout is due to this page sometimes takes a long time to load
         cy.wait('@loadPurchaseHtml', {timeout: 10000}).then((req) => {
             expect(req.response.statusCode).to.eq(200);
             cy.get('h1.page-title > span').should('have.text', 'Thank you for your purchase!');

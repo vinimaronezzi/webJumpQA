@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 
-import menPage from '../pages/men'
-import checkoutPage from '../pages/checkout'
+import menPage from '../support/pages/men'
+import checkoutPage from '../support/pages/checkout'
 
 describe('Should add products to cart before checkout', () => {
     beforeEach(() => {

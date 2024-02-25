@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-import costumerPage from '../pages/costumer'
+import costumerPage from '../support/pages/costumer'
 
 describe('Create new account before logs in', () => {
     beforeEach(() => {
