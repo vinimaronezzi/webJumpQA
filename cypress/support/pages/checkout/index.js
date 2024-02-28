@@ -42,11 +42,9 @@ class CheckOutPage {
             cy.get('select[name="country_id"]', {timeout: 6000}).select('Brazil');
             cy.get('select[name="region_id"]', {timeout: 6000}).select('Paraná');
     
-            let index = 0
-            inputFields.forEach(elem => {
+            inputFields.forEach((elem, index) => {
                 cy.get('#checkout-step-shipping', {timeout: 6000})
                 .find(elem).type(costumerInfoInputFields[index]);
-                index = index + 1;
             });
             cy.get('button[type=submit]').contains('Next').click();
         })

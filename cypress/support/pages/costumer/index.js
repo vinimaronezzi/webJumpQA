@@ -23,10 +23,8 @@ class CostumerPage {
             '#password-confirmation'
         ];
 
-        let index = 0;
-        idInputFields.forEach(elem => {
+        idInputFields.forEach((elem, index) => {
                 cy.get(elem).type(costumerInfo[index]);
-                index = index + 1;
         });
 
         cy.get('#is_subscribed').check();
